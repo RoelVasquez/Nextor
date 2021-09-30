@@ -1,3 +1,5 @@
+import './sass/index.scss';
+
 const test = {
   name: 'john',
   number: 2,
