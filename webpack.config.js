@@ -14,7 +14,9 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'img/[hash][ext][query]',
     clean: true,
+    publicPath: '',
   },
 
   module: {
@@ -36,6 +38,11 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+
+      {
+        test: /\.html$/,
+        use: 'html-loader',
+      },
     ],
   },
 
@@ -43,7 +50,6 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      favicon: './src/img/favicon.png',
     }),
   ],
 
